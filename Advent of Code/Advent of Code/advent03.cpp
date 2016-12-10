@@ -4,17 +4,20 @@
 //---------------------------------------------------------------
 //Advent of Code day 03 source file
 //---------------------------------------------------------------
-//Date		Version		Author			Comment
+//Date			Version		Author			Comment
 //---------------------------------------------------------------
-//3.12.2016	0.1			Tommi Eriksson	Created
-//3.12.2016	0.2			Tommi Eriksson	Part 1 complete. No
-//										comments yet :/
+//3.12.2016		0.1			Tommi Eriksson	Created
+//3.12.2016		0.2			Tommi Eriksson	Part 1 complete. No
+//											comments yet :/
+//10.12.2016	1.0			Tommi Eriksson	Part 2 complete.
+//											Comments are for pussies
 
 #include "advent03.h"
 
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 namespace advent03 
 {
@@ -25,12 +28,16 @@ namespace advent03
 		std::ifstream input;
 
 		int count = 0;
+		int matrix_count = 0;
+		int check = 0;
 		std::string number = "";
 		int side_01 = 0;
 		int side_02 = 0;
 		int side_03 = 0;
+		std::vector<int> matrix_vector;
 
 		bool is_triangle = true;
+		bool is_matrix_triangle = true;
 
 		//reads file and does magic
 		input.open("advent03input.aoc");
@@ -53,13 +60,13 @@ namespace advent03
 						{
 							if (side_01 == 0)
 							{
-								
 								side_01 = stoi(number);
+								matrix_vector.push_back(side_01);
 							}
 							else if (side_02 == 0)
 							{
-								
 								side_02 = stoi(number);
+								matrix_vector.push_back(side_02);
 							}
 							else
 							{
@@ -71,9 +78,12 @@ namespace advent03
 						{
 							number = "";
 						}
+						
 					}
 				}
 				side_03 = std::stoi(number);
+				matrix_vector.push_back(side_03);
+				check++;
 				if (side_01 + side_02 <= side_03) 
 				{
 					is_triangle = false;
@@ -90,11 +100,38 @@ namespace advent03
 				{
 					count++;
 				}
+
 				is_triangle = true;
 				number = "";
+
+				if(check == 3)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						if (matrix_vector[i] + matrix_vector[i+3] <= matrix_vector[i+6])
+						{
+							is_matrix_triangle = false;
+						}
+						else if (matrix_vector[i + 3] + matrix_vector[i + 6] <= matrix_vector[i])
+						{
+							is_matrix_triangle = false;
+						}
+						else if (matrix_vector[i] + matrix_vector[i + 6] <= matrix_vector[i + 3])
+						{
+							is_matrix_triangle = false;
+						}
+						if (is_matrix_triangle)
+						{
+							matrix_count++;
+						}
+						is_matrix_triangle = true;
+					}
+					check = 0;
+					matrix_vector.clear();
+				}
 			}
 		}
-		std::cout << "Number of triangles horizontally: " << count << std::endl;
+		std::cout << "Number of triangles horizontally: " << count << " Number of triangles vertically: " << matrix_count << std::endl;
 		input.close();
 		int pause;
 		std::cin >> pause;

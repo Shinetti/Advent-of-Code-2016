@@ -110,6 +110,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="advent04.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="advent01.cpp" />
     <ClCompile Include="advent02.cpp" />
@@ -119,10 +120,12 @@
     <ClInclude Include="advent01.h" />
     <ClInclude Include="advent02.h" />
     <ClInclude Include="advent03.h" />
+    <ClInclude Include="Advent04.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="advent02input.aoc" />
     <Text Include="advent03input.aoc" />
+    <Text Include="Advent04input.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

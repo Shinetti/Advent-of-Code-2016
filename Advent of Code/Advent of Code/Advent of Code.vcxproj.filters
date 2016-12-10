@@ -27,6 +27,9 @@
     <ClCompile Include="advent03.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="advent04.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="advent01.h">
@@ -38,12 +41,18 @@
     <ClInclude Include="advent03.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Advent04.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="advent02input.aoc">
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="advent03input.aoc">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Advent04input.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

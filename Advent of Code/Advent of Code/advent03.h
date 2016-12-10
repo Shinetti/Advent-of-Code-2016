@@ -7,6 +7,7 @@
 //Date		Version		Author			Comment
 //---------------------------------------------------------------
 //3.12.2016	0.1			Tommi Eriksson	Created
+//3.12.2016	1.0			Tommi Eriksson	Done
 
 namespace advent03 
 {
